@@ -87,14 +87,14 @@ namespace FileSender                // 파일 송신 = 클라이언트
 				using (Stream fileStream = new FileStream(filepath,FileMode.Open))	// 전송대상 파일열기
 				{
 					// 초기화
-					byte[] rbytes = new byte[CHUNK_SIZE];	// 전송대상파일의 데이터 저장할 공간
+					byte[] rbytes = new byte[CHUNK_SIZE];	// 전송대상파일의 데이터 저장할 공간(바이트 배열)
 
 					long readValue = BitConverter.ToInt64(rbytes, 0);
 
 					int totalRead = 0;
 					ushort msgSeq = 0;
 					byte fragmented = (fileStream.Length < CHUNK_SIZE) ? CONSTRAINT.NOT_FRAGMENTED : CONSTRAINT.FAGMENTED;	// 대상파일의 크기를 통한 파편화여부 결정 
-					while(totalRead < fileStream.Length)		// 총 읽은 파일의 데이터크기가 대상의 크기보다 작은동안 == 아직 전송할게 남았으면 반복
+					while(totalRead < fileStream.Length)		// 총 읽은 파일의 데이터크기가 대상의 크기보다 작은동안 반복 == 아직 전송할게 남았으면 반복
 					{
 						int read = fileStream.Read(rbytes, 0, CHUNK_SIZE);  // 파일의 데이터를 CHUNK_SIZE만큼 읽어와 rbytes에 저장하고
 																			// 읽은데이터의 크기(rbytes에 저장된 데이터의 크기)를 반환해 read에 저장
@@ -134,6 +134,7 @@ namespace FileSender                // 파일 송신 = 클라이언트
 
 					// 파일전송결과 (성공여부)출력 (True / False)
 					Console.WriteLine("파일전송 성공 : {0}", result.RESULT == CONSTRAINT.SUCCESS);
+					fileStream.Close();
 				}
 
 				// 전송 끝났으므로 클라이언트, 스트림 접속 끊음

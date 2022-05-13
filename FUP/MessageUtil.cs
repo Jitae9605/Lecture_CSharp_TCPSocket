@@ -25,6 +25,7 @@ namespace FUP
 			int sizeToRead = 16;					// 읽어오고자 하는 바이트 수(헤더에 넣을꺼라서 16)
 			byte[] hbuffer = new byte[sizeToRead];	// 헤더가 담길 버퍼
 
+			// 헤더의 정보를 먼저 읽어온다.
 			while(sizeToRead > 0)									// 총 16바이트 받아올때까지 진행
 			{
 				byte[] buffer = new byte[sizeToRead];
@@ -39,6 +40,7 @@ namespace FUP
 
 			Header header = new Header(hbuffer);					// header를 선언하고 hbuffer를 입력
 
+			// 이제 바디의 정보를 읽어온다
 			totalRecv = 0;											// 수신데이터 초기화
 			byte[] bBuffer = new byte[header.BODYLEN];              // body를 받을 bBuffer를 선언하고 크기는 header의 BODYLEN을 통해 설정
 			sizeToRead = (int)header.BODYLEN;                       // 읽어와야할 데이터의 크기 = header의 BODYLEN

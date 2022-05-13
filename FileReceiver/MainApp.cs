@@ -40,7 +40,7 @@ namespace FileReceiver			// 파일 수신 = 서버
 
 				Console.WriteLine("파일 업로드 서버 시작...");
 
-				while(true)
+				while(true)	// break, 프로그램 종료 전까지 무한반복
 				{
 					TcpClient client = server.AcceptTcpClient();        // client가 server에게 보낸 접속허가요청(Connet)을 승인/접속허가 함
 					Console.WriteLine("클라이언트 접속 : {0}", ((IPEndPoint)client.Client.RemoteEndPoint).ToString());
