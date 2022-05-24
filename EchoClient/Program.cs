@@ -10,6 +10,9 @@ namespace EchoClient
 	{
 		static void Main(string[] args)
 		{
+#if DEBUG
+			args = new[] { "210.119.12.69", "10254", "210.119.12.69", "hello" };     // 디버그 할때 args에 자동으로 값이 입력됨 = F5, ctrl+F5 가능
+#endif
 			if (args.Length < 4)
 			{
 				Console.WriteLine("사용법 : {0} <Bind IP> <Bind Port> <Server IP> <Message>", Process.GetCurrentProcess().ProcessName);

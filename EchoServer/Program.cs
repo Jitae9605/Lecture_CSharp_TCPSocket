@@ -10,8 +10,11 @@ namespace EchoServer
 	{
 		static void Main(string[] args)
 		{
+#if DEBUG
+			args = new[] { "210.119.12.69" };     // 디버그 할때 args에 자동으로 값이 입력됨 = F5, ctrl+F5 가능
+#endif
 			// args없으면 사용법 소개
-			if(args.Length < 1)
+			if (args.Length < 1)
 			{
 				Console.WriteLine("사용법 : {0} <Bind IP>", Process.GetCurrentProcess().ProcessName);	
 				return;

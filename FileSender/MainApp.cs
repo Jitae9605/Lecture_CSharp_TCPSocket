@@ -15,7 +15,7 @@ namespace FileSender                // 파일 송신 = 클라이언트
 		static void Main(string[] args)
 		{
 #if DEBUG
-			args = new[] { "127.0.0.1", "answer.zip" };		// 디버그 할때 args에 자동으로 값이 입력됨
+			args = new[] { "127.0.0.1", "answer.zip" };     // 디버그 할때 args에 자동으로 값이 입력됨 = F5, ctrl+F5 가능
 #endif
 			if (args.Length < 2)                            // args가 입력되지 않으면 사용법이 팝업
 			{
@@ -74,9 +74,9 @@ namespace FileSender                // 파일 송신 = 클라이언트
 				}
 
 				// RESPONSE가 DENIED / ACCEPTED 인지 판단
+				// RESPONSE = DENIED
 				if (((BodyResponse)rspMsg.Body).RESPONSE == CONSTRAINT.DENIED)
 				{
-					// RESPONSE = DENIED
 					Console.WriteLine("서버에서 파일 전송을 거부했습니다.");
 					return;
 				}

@@ -13,7 +13,7 @@ namespace FileReceiver			// 파일 수신 = 서버
 		static void Main(string[] args)
 		{
 #if DEBUG
-			args = new[] { "upload" };		// 디버그 할때 args에 자동으로 값이 입력됨
+			args = new[] { "upload" };		// 디버그 할때 args에 자동으로 값이 입력됨 = F5, ctrl+F5 가능
 #endif
 			if (args.Length < 1)			// args가 입력되지 않으면 사용법이 팝업
 			{
