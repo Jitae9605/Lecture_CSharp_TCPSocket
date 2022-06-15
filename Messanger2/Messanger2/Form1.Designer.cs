@@ -267,7 +267,7 @@ namespace Messanger2
 			this.rtbText.Size = new System.Drawing.Size(357, 298);
 			this.rtbText.TabIndex = 7;
 			this.rtbText.Text = "";
-			this.rtbText.TextChanged += new System.EventHandler(this.rtbText_TextChanged);
+			//this.rtbText.TextChanged += new System.EventHandler(this.rtbText_TextChanged);
 			// 
 			// Form1
 			// 
